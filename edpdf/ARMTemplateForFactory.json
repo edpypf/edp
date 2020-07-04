@@ -630,7 +630,7 @@
 										"sink": {
 											"type": "AzureSqlSink",
 											"preCopyScript": {
-												"value": "@{concat('drop table ',pipeline().parameters.schema,replace(item().name,'.csv',''))}",
+												"value": "@{concat('drop table ',pipeline().parameters.schema,'.',replace(item().name,'.csv',''))}",
 												"type": "Expression"
 											},
 											"tableOption": "autoCreate",
