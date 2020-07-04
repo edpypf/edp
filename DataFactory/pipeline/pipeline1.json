@@ -29,7 +29,9 @@
 							}
 						}
 					},
-					"fieldList": [],
+					"fieldList": [
+						"itemName"
+					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings"
 					},
