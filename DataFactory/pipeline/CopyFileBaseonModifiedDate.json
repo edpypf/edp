@@ -40,14 +40,14 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "dimFiles",
+						"referenceName": "maintainableItem",
 						"type": "DatasetReference",
 						"parameters": {
-							"containerpm": {
+							"containername": {
 								"value": "@pipeline().parameters.Container_Source",
 								"type": "Expression"
 							},
-							"folderpm": {
+							"foldername": {
 								"value": "@pipeline().parameters.FolderPath_Source",
 								"type": "Expression"
 							}
