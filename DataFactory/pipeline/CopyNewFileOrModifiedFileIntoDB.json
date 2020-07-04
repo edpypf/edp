@@ -34,7 +34,15 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
-						"recursive": true
+						"recursive": true,
+						"modifiedDatetimeStart": {
+							"value": "@pipeline().parameters.LastModified_From",
+							"type": "Expression"
+						},
+						"modifiedDatetimeEnd": {
+							"value": "@pipeline().parameters.LastModified_To",
+							"type": "Expression"
+						}
 					},
 					"formatSettings": {
 						"type": "DelimitedTextReadSettings"
