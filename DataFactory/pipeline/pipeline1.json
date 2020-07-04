@@ -124,7 +124,7 @@
 											"type": "Expression"
 										},
 										"tablename": {
-											"value": "@item().name",
+											"value": "@replace(item().name,'.csv','')",
 											"type": "Expression"
 										}
 									}
