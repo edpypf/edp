@@ -54,7 +54,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadata1').output",
+						"value": "@activity('Get Metadata1').output.childnames",
 						"type": "Expression"
 					},
 					"activities": [
@@ -85,8 +85,22 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "maintainableItem",
-									"type": "DatasetReference"
+									"referenceName": "dimFiles",
+									"type": "DatasetReference",
+									"parameters": {
+										"containerpm": {
+											"value": "@pipeline().parameters.container",
+											"type": "Expression"
+										},
+										"folderpm": {
+											"value": "@pipeline().parameters.folder",
+											"type": "Expression"
+										},
+										"filepm": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
