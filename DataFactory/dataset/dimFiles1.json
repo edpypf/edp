@@ -1,0 +1,44 @@
+{
+	"name": "dimFiles1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ABSedpstore",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"containerpm": {
+				"type": "string"
+			},
+			"folderpm": {
+				"type": "string"
+			},
+			"filepm": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().filepm",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().folderpm",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().containerpm",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
