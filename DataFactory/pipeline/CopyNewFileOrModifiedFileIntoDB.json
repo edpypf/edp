@@ -162,11 +162,11 @@
 			},
 			"LastModified_From": {
 				"type": "string",
-				"defaultValue": "2020-07-04T05:00:00Z"
+				"defaultValue": "2020-07-04T21:00:00Z"
 			},
 			"LastModified_To": {
 				"type": "string",
-				"defaultValue": "2020-07-04T06:00:00Z"
+				"defaultValue": "2020-07-04T23:00:00Z"
 			}
 		},
 		"annotations": []
