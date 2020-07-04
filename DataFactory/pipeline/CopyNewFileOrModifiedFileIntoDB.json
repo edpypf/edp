@@ -110,7 +110,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@activity('Check if Table exists').output.value=True",
+									"value": "@activity('Check if Table exists').output=True",
 									"type": "Expression"
 								},
 								"ifFalseActivities": [
