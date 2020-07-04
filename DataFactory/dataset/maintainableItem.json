@@ -5,6 +5,11 @@
 			"referenceName": "ABSedpstore",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"containername": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
