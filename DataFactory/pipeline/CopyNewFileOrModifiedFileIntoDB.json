@@ -110,7 +110,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@activity('Check if Table exists').output.value=1",
+									"value": "@activity('Check if Table exists').output.value=True",
 									"type": "Expression"
 								},
 								"ifFalseActivities": [
@@ -216,7 +216,10 @@
 											},
 											"sink": {
 												"type": "AzureSqlSink",
-												"preCopyScript": "@{concat('drop table ',pipeline().parameters.schema,'.',replace(item().name,'.csv',''))}",
+												"preCopyScript": {
+													"value": "@{concat('drop table ',pipeline().parameters.schema,'.',replace(item().name,'.csv',''))}",
+													"type": "Expression"
+												},
 												"tableOption": "autoCreate",
 												"disableMetricsCollection": false
 											},
