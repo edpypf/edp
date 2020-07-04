@@ -1,0 +1,20 @@
+{
+	"name": "maintainableItem",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ABSedpstore",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

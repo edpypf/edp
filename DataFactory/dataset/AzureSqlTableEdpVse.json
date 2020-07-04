@@ -1,0 +1,12 @@
+{
+	"name": "AzureSqlTableEdpVse",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ASDedpvse",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
