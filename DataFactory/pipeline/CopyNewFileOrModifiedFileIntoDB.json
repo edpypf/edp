@@ -97,7 +97,7 @@
 							}
 						},
 						{
-							"name": "If Condition1",
+							"name": "TableExists",
 							"type": "IfCondition",
 							"dependsOn": [
 								{
