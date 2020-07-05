@@ -14,6 +14,26 @@
 		"ASDedpvse_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ASDedpvse'"
+		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_container": {
+			"type": "string",
+			"defaultValue": "cacc"
+		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_folder": {
+			"type": "string",
+			"defaultValue": "dim"
+		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_schema": {
+			"type": "string",
+			"defaultValue": "dbo"
+		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_LastModified_From": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowStartTime"
+		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_LastModified_To": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
 		}
 	},
 	"variables": {
@@ -121,7 +141,7 @@
 									}
 								},
 								{
-									"name": "If Condition1",
+									"name": "TableExists",
 									"type": "IfCondition",
 									"dependsOn": [
 										{
@@ -845,6 +865,44 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CheckifNeworModifiedFileUploaded')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "CopyNewFileOrModifiedFileIntoDB",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"container": "[parameters('CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_container')]",
+						"folder": "[parameters('CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_folder')]",
+						"schema": "[parameters('CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_schema')]",
+						"LastModified_From": "[parameters('CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_LastModified_From')]",
+						"LastModified_To": "[parameters('CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_LastModified_To')]"
+					}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Minute",
+					"interval": 15,
+					"startTime": "2020-07-05T00:06:00.000Z",
+					"endTime": "2020-07-05T00:06:00.000Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 50,
+					"retryPolicy": {
+						"intervalInSeconds": 30
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/CopyNewFileOrModifiedFileIntoDB')]"
+			]
 		}
 	]
 }

@@ -11,6 +11,21 @@
 		"ASDedpvse_connectionString": {
 			"value": ""
 		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_container": {
+			"value": "cacc"
+		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_folder": {
+			"value": "dim"
+		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_schema": {
+			"value": "dbo"
+		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_LastModified_From": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"CheckifNeworModifiedFileUploaded_properties_pipeline_parameters_LastModified_To": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
 		"containerUri": {
 			"value": ""
 		},
